@@ -21,7 +21,7 @@ echo "<br>Hay un stock de: ".$videojuego["Stock"]. " Y su estado de venta es: ".
 //Ejercicio 4
 $inventario=['The legend of Zelda'=>['Titulo'=>'The legend of Zelda', 'Consola'=>'NES','Año'=>1986, 'Precio' => 50.00, 'Stock'=> 10, 'Estado'=>'a la venta'],
 'Super Mario' => ['Titulo' => 'Super Mario Bros', 'Consola' => 'NES', 'Año' => 1988, 'Precio' => 45.00, 'Stock' => 15, 'Estado' => 'a la venta'],
-'Chrono' => ['Titulo' => 'Chrono Trigger', 'Consola' => 'SNES', 'Año' => 1995, 'Precio' => 80.00, 'Stock' => 5, 'Estado' => 'a la venta'],];
+'Chrono Trigger' => ['Titulo' => 'Chrono Trigger', 'Consola' => 'SNES', 'Año' => 1995, 'Precio' => 80.00, 'Stock' => 5, 'Estado' => 'a la venta'],];
 
 //Ejercicio 5
 foreach($inventario as $producto => $clave){
@@ -72,4 +72,87 @@ foreach($inventario as $producto => $clave){
    }
 
 //Ejercicio 7
+
+$busqueda='The legend of zelda';
+foreach ($inventario as $catalogo => $ki) {
+    if(strcasecmp($busqueda, $catalogo)==0){
+        echo "<br>Tenemos el articulo $catalogo<br>";
+
+        foreach($ki as $dat){
+            if($dat==$ki['Titulo']){
+                echo "<br>El titulo del juego es: $dat<br>";
+            }elseif($dat==$ki['Consola']){
+               echo "Salio en la consola: $dat<br>";
+             }elseif($dat==$ki['Año']){
+                echo "Se lanzo en el año: $dat<br>";
+            }elseif ($dat==$ki['Precio']) {
+                echo "Su precio es de: $$dat<br>";
+            }elseif($dat==$ki['Stock']){
+                echo "Hay un stock de: $dat<br>";
+            }elseif ($dat==$ki['Estado']) {
+                echo "Estado: $dat<br>";
+        }
+        }
+        break;
+    }else{
+        echo "No encontramos el articulo $busqueda<br>";
+        
+    }
+}
+
+//Ejercicio 8
+
+foreach($inventario as $lista=>$kei){
+    $cont=count($inventario);
+    echo "El inventario cuenta con un total de: $cont juegos<br>";
+    break;
+}
+$inventario['Sonic the Hedgehog']=['Titulo'=>'Sonic the Hedgehog','Consola'=>'Sega Genesis','Año'=>1991,'Precio'=>55.00,'Stock'=>8,'Estado'=>'A la venta'];
+foreach($inventario as $lista=>$kei){
+    $cont=count($inventario);
+    echo "El inventario cuenta con un total de: $cont juegos<br>";
+    break;
+}
+
+//Ejercicio 9
+
+array_splice($inventario, 0,1);
+//var_dump($inventario);
+foreach($inventario as $elm=>$mis){
+    foreach ($mis as $dot) {
+        if($dot==$mis['Titulo']){
+            echo "<br>El titulo del juego es: $dot<br>";
+        }elseif ($dot==$mis['Consola']) {
+            echo "Salio en la consola: $dot<br>";
+        }elseif ($dot==$mis['Año']) {
+            echo "Se lanzo en el año: $dot<br>";
+        }elseif ($dot==$mis['Precio']) {
+            echo "Su precio es de: $$dot<br>";
+        }elseif ($dot==$mis['Stock']) {
+            echo "Hay un stock de: $dot<br>";
+        }elseif ($dot==$mis['Estado']) {
+            echo "Estado: $dot<br>";
+        }
+    }
+}
+
+//Ejercicio 10
+ksort($inventario);
+foreach ($inventario as $key => $value) {
+    foreach ($value as $don) {
+        if($don==$value['Titulo']){
+            echo "<br>El titulo del juego es: $don<br>";
+        }elseif ($don==$value['Consola']) {
+            echo "Salio en la consola: $don<br>";
+        }elseif ($don==$value['Año']) {
+            echo "Se lanzo en el año: $don<br>";
+        }elseif ($don==$value['Precio']) {
+            echo "Su precio es de: $$don<br>";
+        }elseif ($don==$value['Stock']) {
+            echo "Hay un stock de: $don<br>";
+        }elseif ($don==$value['Estado']) {
+            echo "Estado: $don<br>";
+        }
+    }
+}
 ?>
